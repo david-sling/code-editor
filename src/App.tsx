@@ -13,9 +13,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/edit/:id" component={Edit} />
-        <Route path="/new">
-          <Redirect to={`/edit/${uuid()}`} />
+        <Route path="/code-editor/edit/:id" component={Edit} />
+        <Route path="/code-editor/new">
+          <Redirect to={`/code-editor/edit/${uuid()}`} />
         </Route>
         <Route path="/" component={Home} />
       </Switch>

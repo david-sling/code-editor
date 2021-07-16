@@ -13,7 +13,7 @@ export default function Home() {
       <div className="circle c3"></div>
       <div className="top">
         <h1>CODE EDITOR</h1>
-        <Link to={`/edit/${uuid()}`}>
+        <Link to={`/code-editor/edit/${uuid()}`}>
           <button>CREATE NEW</button>
         </Link>
       </div>
@@ -57,7 +57,7 @@ const Project = ({ id, title, setProjects }: ProjectProps) => {
         }}
         className="delete"
       />
-      <Link to={`/edit/${id}`}>
+      <Link to={`/code-editor/edit/${id}`}>
         <h3>{title}</h3>
       </Link>
     </div>
