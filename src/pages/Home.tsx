@@ -2,6 +2,7 @@ import { DeleteForever } from "@material-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
+import { v4 as uuid } from "uuid";
 
 export default function Home() {
   const [projects, setProjects] = useLocalStorage("projects", {});
@@ -12,7 +13,7 @@ export default function Home() {
       <div className="circle c3"></div>
       <div className="top">
         <h1>CODE EDITOR</h1>
-        <Link to="/new">
+        <Link to={`/edit/${uuid()}`}>
           <button>CREATE NEW</button>
         </Link>
       </div>

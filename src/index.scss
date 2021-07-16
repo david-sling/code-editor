@@ -24,6 +24,11 @@ button {
   }
 }
 
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .Home {
   min-height: 100vh;
   .top {
@@ -110,6 +115,9 @@ header.NavBar {
     display: flex;
     align-items: center;
     justify-content: center;
+    &.middle {
+      justify-self: left;
+    }
     // gap: 20px;
     input {
       font-size: 1.5rem;
@@ -192,7 +200,6 @@ section.edit {
   & > div {
     width: 50%;
     flex: 1;
-    padding-bottom: 50px;
   }
   &.vertical {
     & > div {
