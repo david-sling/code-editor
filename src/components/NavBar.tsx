@@ -15,7 +15,6 @@ export default function NavBar() {
       <div className="left">
         <Menu
           onClick={() => {
-            console.log({ displayVertical, panelOpen });
             if (displayVertical && !panelOpen) toggleDisplayVertical();
             togglePaneOpen();
           }}

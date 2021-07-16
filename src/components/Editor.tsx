@@ -8,19 +8,13 @@ import { useEffect } from "react";
 export default function Editor() {
   const { code, setCode, current } = useContext(CodeContext);
   const i: any = files.find((f) => f.extension == current)?.icon;
-  console.log(current);
   const [language, setLanguage] = useState(
     current == "js" ? "javascript" : current
   );
 
   useEffect(() => {
-    console.log({ code: code[current], current });
     setLanguage(current == "js" ? "javascript" : current);
   }, [current]);
-
-  useEffect(() => {
-    console.log({ language });
-  }, [language]);
 
   return (
     <div className="Editor">
