@@ -14,9 +14,10 @@ export default function App() {
     <Router>
       <Switch>
         <Route path="/edit/:id" component={Edit} />
-        <Route path="/">
+        <Route path="/new">
           <Redirect to={`/edit/${uuid()}`} />
         </Route>
+        <Route path="/" component={Home} />
       </Switch>
     </Router>
   );

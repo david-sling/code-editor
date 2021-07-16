@@ -9,6 +9,7 @@ export default function NavBar() {
   const { displayVertical, toggleDisplayVertical } = useContext(
     DisplayVerticalContext
   );
+  const { id, projects, setProjects } = useContext(CodeContext);
   return (
     <header className="NavBar">
       <div className="left">
@@ -21,7 +22,12 @@ export default function NavBar() {
         />
       </div>
       <div className="middle">
-        <h1>CODE EDITOR</h1>
+        <input
+          onChange={({ target: { value } }) =>
+            setProjects((prev: any) => ({ ...prev, [id]: value }))
+          }
+          value={projects[id]}
+        />
       </div>
       <div className="right">
         {!displayVertical ? (

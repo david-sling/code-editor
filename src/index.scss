@@ -12,6 +12,91 @@ $darkest: #0f0f0f;
   box-sizing: border-box;
   font-family: "Montserrat";
 }
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    box-shadow: inset 5px 5px 10px 0 #00000057;
+  }
+}
+
+.Home {
+  min-height: 100vh;
+  .top {
+    padding: 100px;
+    padding-bottom: 50px;
+    button {
+      margin-top: 20px;
+      background-color: $primary;
+      color: $white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1.5rem;
+    }
+  }
+  .bottom {
+    padding: 100px;
+    h2 {
+      font-size: 1rem;
+      opacity: 0.5;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .Project {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        svg {
+          opacity: 0.5;
+          transition: 0.2s;
+          cursor: pointer;
+          &:hover {
+            color: red;
+          }
+        }
+        h3 {
+          padding: 10px;
+          font-size: 1.5rem;
+          cursor: pointer;
+          transition: 0.2s;
+          color: $darkest;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+  .circle {
+    position: absolute;
+    background-color: $primary;
+    border-radius: 50%;
+    z-index: -1;
+    &.c1 {
+      padding: 250px;
+      right: -100px;
+      bottom: -100px;
+    }
+    &.c2 {
+      padding: 20px;
+      right: 100px;
+      top: 50px;
+    }
+    &.c3 {
+      padding: 100px;
+      right: 400px;
+      top: 200px;
+    }
+  }
+}
 
 header.NavBar {
   z-index: 5;
@@ -26,9 +111,15 @@ header.NavBar {
     align-items: center;
     justify-content: center;
     // gap: 20px;
-    h1 {
+    input {
       font-size: 1.5rem;
       color: $white;
+      background-color: transparent;
+      border: none;
+      &:active,
+      &:focus {
+        outline: none;
+      }
     }
     svg {
       color: $white;

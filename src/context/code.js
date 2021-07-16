@@ -13,10 +13,15 @@ export const CodeContext = createContext();
 export const CodeProvider = ({ children }) => {
   const { id: ID = "" } = useParams();
   const [id, setId] = useState(ID);
+  const [projects, setProjects] = useLocalStorage("projects", {});
   const [code, setCode] = useLocalStorage("code-" + id, defaultValues);
   const [current, setCurrent] = useState("html");
 
   const [source, setSource] = useState("");
+
+  useEffect(() => {
+    setProjects((prev) => ({ ...prev, [id]: prev[id] || "Untitled" }));
+  }, [id]);
 
   useEffect(() => {
     setSource(`
@@ -37,6 +42,8 @@ export const CodeProvider = ({ children }) => {
     setSource,
     id,
     setId,
+    projects,
+    setProjects,
   };
 
   return <CodeContext.Provider value={value}>{children}</CodeContext.Provider>;
