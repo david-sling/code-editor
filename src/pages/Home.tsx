@@ -6,6 +6,7 @@ import { v4 as uuid } from "uuid";
 
 export default function Home() {
   const [projects, setProjects] = useLocalStorage("projects", {});
+  const keys = Object.keys(projects).filter((key) => projects[key]);
   return (
     <div className="Home">
       <div className="circle c1"></div>
@@ -18,20 +19,20 @@ export default function Home() {
         </Link>
       </div>
       <div className="bottom">
-        {!!Object.keys(projects).filter((key) => projects[key]).length && (
+        <h2>
+          {keys.length || "NO "} LOCAL PROJECT{keys.length != 1 ? "S" : ""}
+        </h2>
+        {!!keys.length && (
           <>
-            <h2>LOCAL PROJECTS</h2>
             <div className="projects">
-              {Object.keys(projects)
-                .filter((key) => projects[key])
-                .map((id) => (
-                  <Project
-                    setProjects={setProjects}
-                    key={id}
-                    id={id}
-                    title={projects[id]}
-                  />
-                ))}
+              {keys.map((id) => (
+                <Project
+                  setProjects={setProjects}
+                  key={id}
+                  id={id}
+                  title={projects[id]}
+                />
+              ))}
             </div>
           </>
         )}
