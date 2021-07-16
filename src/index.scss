@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&display=swap");
+
+$primary: #257cff;
+$white: #fff;
+$dark: #313131;
+$darker: #1b1b1b;
+$darkest: #0f0f0f;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+
+header.NavBar {
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $primary;
+  // position: sticky;
+  top: 0;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    h1 {
+      font-size: 1.5rem;
+      color: $white;
+    }
+    svg {
+      color: $white;
+    }
+  }
+}
+
+section.edit {
+  display: flex;
+}
+
+.SidePane {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: $darker;
+  padding-top: 20px;
+  // width: 64px;
+  overflow: hidden;
+  align-items: flex-start;
+  align-items: stretch;
+  h4 {
+    padding: 20px 20px 0 20px;
+    color: $dark;
+    letter-spacing: 3px;
+    // opacity: 0.5;
+  }
+  .files {
+    display: flex;
+    flex-direction: column;
+    .File {
+      padding: 20px 25px 20px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: $darker;
+      transition: 0.2s;
+      cursor: pointer;
+      &:hover {
+        background-color: $dark;
+      }
+      p {
+        color: $white;
+      }
+    }
+  }
+}
+
+.workspace {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  & > div {
+    flex: 1;
+  }
+}
+
+.Editor {
+  background-color: $darkest;
+}
+
+.Output {
+  background-color: $white;
+}
