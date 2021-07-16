@@ -25,14 +25,17 @@ header.NavBar {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    // gap: 20px;
     h1 {
       font-size: 1.5rem;
       color: $white;
     }
     svg {
       color: $white;
+      cursor: pointer;
+      padding: 16px;
+      height: 60px;
+      width: 60px;
     }
   }
 }
@@ -47,10 +50,16 @@ section.edit {
   flex-direction: column;
   background-color: $darker;
   padding-top: 20px;
-  // width: 64px;
   overflow: hidden;
   align-items: flex-start;
   align-items: stretch;
+  transition: 0.5s;
+  &.closed {
+    width: 64px;
+  }
+  &.open {
+    width: 175px;
+  }
   h4 {
     padding: 20px 20px 0 20px;
     color: $dark;
@@ -60,6 +69,7 @@ section.edit {
   .files {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     .File {
       padding: 20px 25px 20px 20px;
       display: flex;
@@ -68,11 +78,13 @@ section.edit {
       background-color: $darker;
       transition: 0.2s;
       cursor: pointer;
-      &:hover {
+      &:hover,
+      &.active {
         background-color: $dark;
       }
       p {
         color: $white;
+        width: 100px;
       }
     }
   }
@@ -83,15 +95,40 @@ section.edit {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
+  height: 100vw;
   & > div {
+    width: 50%;
     flex: 1;
+  }
+  &.vertical {
+    & > div {
+      width: 100%;
+      height: 50%;
+      // flex: 1;
+      overflow: hidden;
+    }
+    flex-direction: column;
   }
 }
 
 .Editor {
-  background-color: $darkest;
+  background-color: #1e1e1e;
+  .head {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      color: $white;
+      opacity: 50%;
+    }
+  }
 }
 
 .Output {
   background-color: $white;
+  iframe {
+    height: 100%;
+    width: 100%;
+  }
 }

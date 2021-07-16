@@ -1,24 +1,28 @@
-import {
-  HorizontalSplit,
-  Menu,
-  Share,
-  VerticalSplit,
-} from "@material-ui/icons";
-import React from "react";
+import { HorizontalSplit, Menu, Save, VerticalSplit } from "@material-ui/icons";
+import React, { useContext } from "react";
+import { DisplayVerticalContext } from "../context/displayVertical";
+import { PaneOpenContext } from "../context/paneOpen";
 
 export default function NavBar() {
+  const { togglePaneOpen } = useContext(PaneOpenContext);
+  const { displayVertical, toggleDisplayVertical } = useContext(
+    DisplayVerticalContext
+  );
   return (
     <header className="NavBar">
       <div className="left">
-        <Menu />
+        <Menu onClick={togglePaneOpen} />
       </div>
       <div className="middle">
         <h1>CODE EDITOR</h1>
       </div>
       <div className="right">
-        <Share />
-        <VerticalSplit />
-        <HorizontalSplit />
+        <Save />
+        {!displayVertical ? (
+          <VerticalSplit onClick={toggleDisplayVertical} />
+        ) : (
+          <HorizontalSplit onClick={toggleDisplayVertical} />
+        )}
       </div>
     </header>
   );
