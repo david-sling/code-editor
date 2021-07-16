@@ -14,7 +14,10 @@ export const CodeProvider = ({ children }) => {
   const { id: ID = "" } = useParams();
   const [id, setId] = useState(ID);
   const [projects, setProjects] = useLocalStorage("projects", {});
-  const [code, setCode] = useLocalStorage("code-" + id, defaultValues);
+  const [code, setCode, removeCode] = useLocalStorage(
+    "code-" + id,
+    defaultValues
+  );
   const [current, setCurrent] = useState("html");
 
   const [source, setSource] = useState("");
@@ -36,6 +39,7 @@ export const CodeProvider = ({ children }) => {
   const value = {
     code,
     setCode,
+    removeCode,
     current,
     setCurrent,
     source,

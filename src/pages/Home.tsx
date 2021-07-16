@@ -13,7 +13,7 @@ export default function Home() {
       <div className="circle c3"></div>
       <div className="top">
         <h1>CODE EDITOR</h1>
-        <Link to={`/code-editor/edit/${uuid()}`}>
+        <Link to={`/edit/${uuid()}`}>
           <button>CREATE NEW</button>
         </Link>
       </div>
@@ -47,17 +47,17 @@ interface ProjectProps {
 }
 
 const Project = ({ id, title, setProjects }: ProjectProps) => {
-  const [, setCode] = useLocalStorage("code-" + id);
+  const [, , removeCode] = useLocalStorage("code-" + id);
   return (
     <div className="Project">
       <DeleteForever
         onClick={() => {
           setProjects((prev: any) => ({ ...prev, [id]: undefined }));
-          setCode(undefined);
+          removeCode();
         }}
         className="delete"
       />
-      <Link to={`/code-editor/edit/${id}`}>
+      <Link to={`/edit/${id}`}>
         <h3>{title}</h3>
       </Link>
     </div>

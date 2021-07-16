@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect,
@@ -9,13 +9,16 @@ import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import { v4 as uuid } from "uuid";
 
+const { PUBLIC_URL } = process.env;
+console.log({ PUBLIC_URL });
+
 export default function App() {
   return (
-    <Router>
+    <Router basename="/">
       <Switch>
-        <Route path="/code-editor/edit/:id" component={Edit} />
-        <Route path="/code-editor/new">
-          <Redirect to={`/code-editor/edit/${uuid()}`} />
+        <Route path="/edit/:id" component={Edit} />
+        <Route path="/new">
+          <Redirect to={`/edit/${uuid()}`} />
         </Route>
         <Route path="/" component={Home} />
       </Switch>
