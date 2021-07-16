@@ -7,9 +7,9 @@ import { PaneOpenContext } from "../context/paneOpen";
 
 export default function SidePane() {
   const { current, setCurrent } = useContext(CodeContext);
-  const { paneOpen } = useContext(PaneOpenContext);
+  const { panelOpen } = useContext(PaneOpenContext);
   return (
-    <div className={"SidePane " + (paneOpen ? "open" : "closed")}>
+    <div className={"SidePane " + (panelOpen ? "open" : "closed")}>
       {/* <h4>FILES</h4> */}
       <div className="files">
         {files.map((file) => (

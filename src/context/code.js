@@ -1,15 +1,19 @@
 import React, { useState, createContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const defaultValues = {
   html: `<h1>WELCOME</h1>`,
-  css: `h1{ text-decoration: underline; }`,
+  css: `h1:hover { text-decoration: underline; }`,
   js: `document.querySelector("h1").style.color="red"`,
 };
 
 export const CodeContext = createContext();
 
 export const CodeProvider = ({ children }) => {
-  const [code, setCode] = useState(defaultValues);
+  const { id: ID = "" } = useParams();
+  const [id, setId] = useState(ID);
+  const [code, setCode] = useLocalStorage("code-" + id, defaultValues);
   const [current, setCurrent] = useState("html");
 
   const [source, setSource] = useState("");
@@ -24,7 +28,16 @@ export const CodeProvider = ({ children }) => {
       `);
   }, [code]);
 
-  const value = { code, setCode, current, setCurrent, source, setSource };
+  const value = {
+    code,
+    setCode,
+    current,
+    setCurrent,
+    source,
+    setSource,
+    id,
+    setId,
+  };
 
   return <CodeContext.Provider value={value}>{children}</CodeContext.Provider>;
 };

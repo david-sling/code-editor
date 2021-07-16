@@ -42,6 +42,8 @@ header.NavBar {
 
 section.edit {
   display: flex;
+  // height: 100vh;
+  overflow: hidden;
 }
 
 .SidePane {
@@ -95,15 +97,16 @@ section.edit {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
-  height: 100vw;
+  height: 100vh;
   & > div {
     width: 50%;
     flex: 1;
+    padding-bottom: 50px;
   }
   &.vertical {
     & > div {
       width: 100%;
-      height: 50%;
+      height: 100vh;
       // flex: 1;
       overflow: hidden;
     }
@@ -127,8 +130,10 @@ section.edit {
 
 .Output {
   background-color: $white;
+  // padding-top: 10px;
   iframe {
     height: 100%;
     width: 100%;
+    border: none;
   }
 }
