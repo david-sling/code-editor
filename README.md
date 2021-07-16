@@ -1,5 +1,7 @@
 # CODE EDITOR
 
+The application is built using react in typescript. It is hosted using GitHub Pages.
+
 ## Installation
 
     git clone https://github.com/david-sling/code-editor.git
@@ -16,3 +18,4 @@
 - All projects are locally stored and can be reopened later if the cache is not cleared.
 - Can toggle the orientation of Input and Output divs using the top-right icon.
 - Can toggle the expanded state of the left pane using the top-left icon.
+- Hot reload enabled
