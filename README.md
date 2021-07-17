@@ -6,7 +6,8 @@ The application is built using react in typescript. It is hosted using GitHub Pa
 
     git clone https://github.com/david-sling/code-editor.git
     cd code-editor
-    npm start
+    yarn install
+    yarn start
 
 - [Live Website](https://david-sling.github.io/code-editor/)
 - [Figma Design](https://www.figma.com/file/GJDopkBgZQJykU4msYYxLj/CODE-EDITOR?node-id=1%3A3)
